@@ -193,6 +193,11 @@ body {
   padding: 42px 36px;
 }
 
+.btn-logout {
+  margin-top: 24px;
+  background: #8d6a3f;
+}
+
 .dashboard-header h1 {
   margin: 0 0 10px;
   font-size: 2rem;

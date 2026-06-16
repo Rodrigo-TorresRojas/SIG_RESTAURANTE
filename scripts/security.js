@@ -12,6 +12,7 @@ loginForm.addEventListener('submit', (event) => {
   const password = document.getElementById('password').value.trim()
 
   if (email.toLowerCase() === sampleUser.email && password === sampleUser.password) {
+    sessionStorage.setItem('huerequeque-authenticated', 'true')
     window.location.href = 'index.html'
     return
   }
