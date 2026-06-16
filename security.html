@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SIG Restaurante - Seguridad</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script type="module" src="scripts/security.js" defer></script>
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="brand">
+        <div class="logo-placeholder">Logo HUEREQUEQUE</div>
+        <div>
+          <h1>HUEREQUEQUE</h1>
+          <p class="subtitulo">Sistema de gestión de restaurante - UNLaM</p>
+        </div>
+      </div>
+      <div class="logo-secondary">Logo Universidad</div>
+    </header>
+
+    <main class="page-shell">
+      <section class="panel">
+        <div class="panel-heading">
+          <h2>Seguridad</h2>
+          <p>Accede al sistema con tu cuenta institucional o administrativa.</p>
+        </div>
+
+        <div class="tabs" role="tablist" aria-label="Navegación de seguridad">
+          <button class="tab active" data-tab="login" type="button" role="tab" aria-selected="true">Inicio de sesión</button>
+        </div>
+
+        <div class="tab-content active" id="login" role="tabpanel">
+          <form class="login-form">
+            <label for="email">Correo electrónico</label>
+            <input id="email" name="email" type="email" placeholder="usuario@unlam.edu.ar" required />
+
+            <label for="password">Contraseña</label>
+            <input id="password" name="password" type="password" placeholder="••••••••" required />
+
+            <button type="submit" class="btn-primary">Acceder</button>
+          </form>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>
