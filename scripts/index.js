@@ -5,6 +5,17 @@ if (!authorized) {
   window.location.href = 'security.html'
 }
 
+const userInfo = JSON.parse(sessionStorage.getItem('huerequeque-user') || '{}')
+
+document.addEventListener('DOMContentLoaded', () => {
+  const userName = document.getElementById('userName')
+  const userRole = document.getElementById('userRole')
+  if (userName && userRole) {
+    userName.textContent = `${userInfo.nombre || 'Empleado'} ${userInfo.apellido || ''}`.trim()
+    userRole.textContent = userInfo.rol || 'Rol no disponible'
+  }
+})
+
 const logoutButton = document.getElementById('logoutButton')
 const orderForm = document.getElementById('orderForm')
 const dishSelect = document.getElementById('dishSelect')

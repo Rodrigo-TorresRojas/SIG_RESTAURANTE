@@ -4192,42 +4192,54 @@ export const empleados = [
     "nombre": "María",
     "apellido": "Condori",
     "rol": "Cajera",
-    "telefono": 912345678
+    "telefono": 912345678,
+    "email": "maria.condori@huerequeque.edu",
+    "password": "Maria2025"
   },
   {
     "id_empleado": 2,
     "nombre": "Pedro",
     "apellido": "Huanca",
     "rol": "Cocina",
-    "telefono": 923456789
+    "telefono": 923456789,
+    "email": "pedro.huanca@huerequeque.edu",
+    "password": "Pedro2025"
   },
   {
     "id_empleado": 3,
     "nombre": "Sofía",
     "apellido": "Quispe",
     "rol": "Cocina",
-    "telefono": 934567890
+    "telefono": 934567890,
+    "email": "sofia.quispe@huerequeque.edu",
+    "password": "Sofia2025"
   },
   {
     "id_empleado": 4,
     "nombre": "Luis",
     "apellido": "Ramos",
     "rol": "Atención",
-    "telefono": 945678901
+    "telefono": 945678901,
+    "email": "luis.ramos@huerequeque.edu",
+    "password": "Luis2025"
   },
   {
     "id_empleado": 5,
     "nombre": "Carmen",
     "apellido": "Flores",
     "rol": "Atención",
-    "telefono": 956789012
+    "telefono": 956789012,
+    "email": "carmen.flores@huerequeque.edu",
+    "password": "Carmen2025"
   },
   {
     "id_empleado": 6,
     "nombre": "Rodrigo",
     "apellido": "Vargas",
     "rol": "Delivery",
-    "telefono": 967890123
+    "telefono": 967890123,
+    "email": "rodrigo.vargas@huerequeque.edu",
+    "password": "Rodrigo2025"
   }
 ];
 

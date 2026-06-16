@@ -9,14 +9,22 @@
   </head>
   <body>
     <main class="page-shell">
-      <section class="dashboard-card">
-        <div class="dashboard-header">
-          <div>
-            <span class="eyebrow">Registro de pedidos</span>
-            <h1>Bienvenido a HUEREQUEQUE</h1>
+      <div class="dashboard-layout">
+        <aside class="sidebar">
+          <div class="user-card">
+            <p class="eyebrow">Usuario conectado</p>
+            <h2 id="userName">Empleado</h2>
+            <p id="userRole" class="user-role">Rol</p>
+            <button id="logoutButton" class="btn-primary btn-logout" type="button">Cerrar sesión</button>
           </div>
-          <button id="logoutButton" class="btn-primary btn-logout" type="button">Cerrar sesión</button>
-        </div>
+        </aside>
+        <section class="dashboard-card">
+          <div class="dashboard-header">
+            <div>
+              <span class="eyebrow">Registro de pedidos</span>
+              <h1>Bienvenido a HUEREQUEQUE</h1>
+            </div>
+          </div>
 
         <div class="order-panel">
           <div class="order-intro">

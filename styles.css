@@ -36,6 +36,45 @@ body {
   margin: auto;
 }
 
+.dashboard-layout {
+  display: grid;
+  grid-template-columns: minmax(200px, 240px) 1fr;
+  gap: 24px;
+  align-items: start;
+}
+
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.user-card {
+  background: rgba(255, 255, 255, 0.96);
+  border: 1px solid var(--border);
+  border-radius: 28px;
+  box-shadow: var(--shadow);
+  padding: 28px 22px;
+}
+
+.user-card h2 {
+  margin: 12px 0 6px;
+  font-size: 1.5rem;
+}
+
+.user-role {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+.btn-logout {
+  margin-top: 22px;
+  padding: 10px 16px;
+  font-size: 0.92rem;
+  width: 100%;
+}
+
 .auth-card {
   background: rgba(255, 255, 255, 0.95);
   border: 1px solid var(--border);
