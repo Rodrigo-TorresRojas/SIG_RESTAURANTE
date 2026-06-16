@@ -1,15 +1,14 @@
-/* Estilo formal y limpio, con espacio para logos y colores suaves */
+/* Estilo formal para el portal administrativo de HUEREQUEQUE */
 :root {
   color-scheme: light;
-  --bg: #f4f1eb;
-  --panel: #ffffff;
-  --text: #1f2a37;
-  --muted: #596672;
-  --accent: #7c9a7f;
-  --accent-2: #d8b98f;
-  --accent-3: #a7c7d9;
-  --border: #d6d2c6;
-  --shadow: 0 18px 48px rgba(41, 54, 66, 0.08);
+  --bg: #f6f1e7;
+  --surface: #ffffff;
+  --text: #3e3021;
+  --muted: #6d5e4f;
+  --accent: #7b8b76;
+  --accent-soft: #d8c8a0;
+  --border: #e2d7ca;
+  --shadow: 0 32px 80px rgba(47, 45, 41, 0.08);
 }
 
 * {
@@ -21,111 +20,54 @@ body {
   margin: 0;
   min-height: 100%;
   font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-  background: linear-gradient(180deg, #fdf9f4 0%, #f4f1eb 100%);
+  background: radial-gradient(circle at top, rgba(255, 255, 255, 0.9), transparent 28%),
+    linear-gradient(180deg, #fbf5ed 0%, #f4eee5 100%);
   color: var(--text);
 }
 
 body {
-  padding: 0 20px 40px;
-}
-
-.site-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  max-width: 1080px;
-  margin: 0 auto 32px;
-  padding: 24px 28px;
-  background: rgba(255, 255, 255, 0.88);
-  border: 1px solid var(--border);
-  border-radius: 24px;
-  box-shadow: var(--shadow);
-}
-
-.brand {
-  display: flex;
-  align-items: center;
-  gap: 18px;
-}
-
-.logo-placeholder,
-.logo-secondary {
-  min-width: 80px;
-  min-height: 80px;
   display: grid;
   place-items: center;
-  background: #e8e4dc;
-  color: var(--muted);
-  font-size: 0.9rem;
-  border-radius: 18px;
-  text-align: center;
-  padding: 10px;
-}
-
-h1 {
-  margin: 0;
-  font-size: 1.5rem;
-  letter-spacing: 0.02em;
-}
-
-.subtitulo {
-  margin: 6px 0 0;
-  color: var(--muted);
-  font-size: 0.95rem;
+  padding: 24px;
 }
 
 .page-shell {
-  max-width: 720px;
-  margin: 0 auto;
+  width: min(100%, 520px);
+  margin: auto;
 }
 
-.panel {
-  background: var(--panel);
+.auth-card {
+  background: rgba(255, 255, 255, 0.95);
   border: 1px solid var(--border);
   border-radius: 28px;
   box-shadow: var(--shadow);
-  padding: 36px;
+  padding: 42px 36px;
 }
 
-.panel-heading h2 {
+.auth-header {
+  text-align: center;
+  margin-bottom: 32px;
+}
+
+.eyebrow {
   margin: 0 0 10px;
-  font-size: 1.35rem;
-}
-
-.panel-heading p {
-  margin: 0;
   color: var(--muted);
-  line-height: 1.6;
+  font-size: 0.85rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
 }
 
-.tabs {
-  margin: 28px 0 20px;
-  display: inline-flex;
-  gap: 12px;
+.auth-header h1 {
+  margin: 0;
+  font-size: 2.2rem;
+  letter-spacing: 0.08em;
 }
 
-.tab {
-  border: 1px solid var(--border);
-  background: #faf7f3;
-  color: var(--text);
-  padding: 12px 18px;
-  border-radius: 16px;
-  cursor: pointer;
-  transition: background 160ms ease, color 160ms ease;
-}
-
-.tab.active,
-.tab:hover {
-  background: var(--accent-3);
-  color: #183248;
-}
-
-.tab-content {
-  display: none;
-}
-
-.tab-content.active {
-  display: block;
+.auth-subtitle {
+  margin: 10px auto 0;
+  max-width: 360px;
+  color: var(--muted);
+  line-height: 1.7;
 }
 
 .login-form {
@@ -133,49 +75,137 @@ h1 {
   gap: 18px;
 }
 
-.login-form label {
-  display: block;
-  font-size: 0.95rem;
-  margin-bottom: 6px;
+.form-group {
+  display: grid;
+  gap: 8px;
 }
 
-.login-form input {
+.form-group label {
+  font-size: 0.95rem;
+  color: var(--muted);
+}
+
+.form-group input {
   width: 100%;
-  padding: 14px 16px;
-  border: 1px solid var(--border);
+  padding: 16px 18px;
+  border: 1px solid #dbd2c7;
   border-radius: 16px;
-  background: #fbf7f1;
+  background: #fbf8f2;
   color: var(--text);
   font-size: 1rem;
 }
 
+.form-group input:focus {
+  outline: 2px solid rgba(123, 139, 118, 0.25);
+  border-color: var(--accent);
+}
+
+.form-options {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.checkbox-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--muted);
+  font-size: 0.92rem;
+}
+
+.checkbox-label input {
+  width: 16px;
+  height: 16px;
+}
+
+.link-secondary {
+  color: var(--text);
+  text-decoration: none;
+  font-size: 0.92rem;
+  transition: color 160ms ease;
+}
+
+.link-secondary:hover {
+  color: var(--accent);
+}
+
 .btn-primary {
+  width: 100%;
   border: none;
   cursor: pointer;
   border-radius: 18px;
-  padding: 14px 18px;
-  background: linear-gradient(135deg, var(--accent), var(--accent-3));
+  padding: 16px 20px;
+  background: linear-gradient(135deg, #6b5f48 0%, #a18c69 100%);
   color: white;
-  font-weight: 600;
-  font-size: 1rem;
+  font-weight: 700;
+  font-size: 0.98rem;
+  letter-spacing: 0.04em;
 }
 
 .btn-primary:hover {
-  filter: brightness(1.05);
+  filter: brightness(1.03);
 }
 
-@media (max-width: 720px) {
-  .site-header {
-    flex-direction: column;
-    align-items: stretch;
-    padding: 22px;
+.auth-footer {
+  margin-top: 32px;
+  text-align: center;
+  color: var(--muted);
+  font-size: 0.9rem;
+  line-height: 1.75;
+}
+
+.footer-links {
+  display: flex;
+  justify-content: center;
+  gap: 18px;
+  flex-wrap: wrap;
+  margin-top: 10px;
+}
+
+.footer-links a {
+  color: var(--muted);
+  text-decoration: none;
+  transition: color 160ms ease;
+}
+
+.footer-links a:hover {
+  color: var(--accent);
+}
+
+@media (max-width: 520px) {
+  .auth-card {
+    padding: 28px 22px;
   }
 
-  .brand {
-    width: 100%;
+  .auth-header h1 {
+    font-size: 1.9rem;
   }
+}
 
-  .logo-secondary {
-    width: 100%;
-  }
+.dashboard-card {
+  background: rgba(255, 255, 255, 0.95);
+  border: 1px solid var(--border);
+  border-radius: 28px;
+  box-shadow: var(--shadow);
+  padding: 42px 36px;
+}
+
+.dashboard-header h1 {
+  margin: 0 0 10px;
+  font-size: 2rem;
+}
+
+.dashboard-header p {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.7;
+}
+
+.dashboard-content {
+  margin-top: 24px;
+  color: var(--text);
+  line-height: 1.8;
 }
