@@ -108,13 +108,16 @@ body {
   gap: 8px;
 }
 
-.form-group label {
+.form-group label,
+.field-group label {
   font-size: 0.95rem;
   color: var(--muted);
 }
 
 .form-group input,
-.form-group select {
+.form-group select,
+.field-group input,
+.field-group select {
   width: 100%;
   padding: 14px 16px;
   border: 1px solid #dbd2c7;
