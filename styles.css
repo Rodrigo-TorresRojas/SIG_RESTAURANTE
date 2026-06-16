@@ -166,6 +166,37 @@ body {
   padding: 26px;
 }
 
+.history-controls {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 18px;
+}
+
+.history-controls label {
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+.history-controls select {
+  padding: 12px 14px;
+  border: 1px solid #dbd2c7;
+  border-radius: 16px;
+  background: #fbf8f2;
+  color: var(--text);
+  font-size: 1rem;
+}
+
+.status-select {
+  width: 100%;
+  padding: 12px 14px;
+  border: 1px solid #dbd2c7;
+  border-radius: 16px;
+  background: #fbf8f2;
+  color: var(--text);
+  font-size: 0.95rem;
+}
+
 .cart-header,
 .history-header {
   display: flex;

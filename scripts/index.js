@@ -26,6 +26,7 @@ const cartTotal = document.getElementById('cartTotal')
 const cartStatus = document.getElementById('cartStatus')
 const historyBody = document.getElementById('historyBody')
 const orderNotice = document.getElementById('orderNotice')
+const historyFilter = document.getElementById('historyFilter')
 const tipoServicio = document.getElementById('tipoServicio')
 const tableNumberRow = document.getElementById('tableNumberRow')
 const tableNumber = document.getElementById('tableNumber')
@@ -42,6 +43,7 @@ logoutButton.addEventListener('click', () => {
 orderForm.addEventListener('submit', handleSubmit)
 addDishButton.addEventListener('click', addDishToCart)
 tipoServicio.addEventListener('change', updateTableField)
+historyFilter.addEventListener('change', renderHistory)
 
 init()
 
@@ -212,15 +214,48 @@ function handleSubmit(event) {
 }
 
 function renderHistory() {
-  const rows = savedOrders.slice(0, 8).map((order) => `
-    <tr>
-      <td>${order.id_pedido}</td>
-      <td>${order.fecha_hora}</td>
-      <td>${order.tipo_servicio}</td>
-      <td><span class="badge ${order.estado === 'Cancelado' ? 'badge-danger' : order.estado === 'Entregado' ? 'badge-success' : 'badge-soft'}">${order.estado}</span></td>
-      <td>${formatCurrency(order.total_pago)}</td>
-    </tr>`)
-  historyBody.innerHTML = rows.join('')
+  const filterValue = historyFilter.value
+  const sortedOrders = [
+    ...savedOrders.filter((order) => order.estado === 'En preparación'),
+    ...savedOrders.filter((order) => order.estado !== 'En preparación')
+  ]
+
+  const filteredOrders = sortedOrders.filter((order) => filterValue === 'Todos' || order.estado === filterValue)
+  const rows = filteredOrders.map((order) => {
+    const estadoCell = order.estado === 'En preparación'
+      ? `
+        <select class="status-select" data-id="${order.id_pedido}">
+          <option value="En preparación" ${order.estado === 'En preparación' ? 'selected' : ''}>En preparación</option>
+          <option value="Entregado">Entregado</option>
+          <option value="Cancelado">Cancelado</option>
+        </select>`
+      : `<span class="badge ${order.estado === 'Cancelado' ? 'badge-danger' : 'badge-success'}">${order.estado}</span>`
+
+    return `
+      <tr>
+        <td>${order.id_pedido}</td>
+        <td>${order.fecha_hora}</td>
+        <td>${order.tipo_servicio}</td>
+        <td>${estadoCell}</td>
+        <td>${formatCurrency(order.total_pago)}</td>
+      </tr>`
+  })
+
+  historyBody.innerHTML = rows.length ? rows.join('') : '<tr><td colspan="5" class="empty-row">No hay pedidos para este filtro.</td></tr>'
+
+  Array.from(historyBody.querySelectorAll('.status-select')).forEach((select) => {
+    select.addEventListener('change', () => updateOrderStatus(Number(select.dataset.id), select.value))
+  })
+}
+
+function updateOrderStatus(orderId, newStatus) {
+  const order = savedOrders.find((item) => item.id_pedido === orderId)
+  if (!order || order.estado !== 'En preparación') return
+
+  order.estado = newStatus
+  saveOrders()
+  renderHistory()
+  setNotice(`Pedido ${orderId} actualizado a ${newStatus}.`, 'success')
 }
 
 function formatDate(date) {
