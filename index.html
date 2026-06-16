@@ -3,22 +3,127 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>HUEREQUEQUE - Inicio</title>
+    <title>HUEREQUEQUE - Registrar pedido</title>
     <link rel="stylesheet" href="styles.css" />
-    <script src="scripts/index.js" defer></script>
+    <script type="module" src="scripts/index.js" defer></script>
   </head>
   <body>
     <main class="page-shell">
       <section class="dashboard-card">
         <div class="dashboard-header">
-          <h1>Bienvenido a HUEREQUEQUE</h1>
-          <p>Has ingresado correctamente al sistema de gestión del restaurante.</p>
-        </div>
-
-        <div class="dashboard-content">
-          <p>Desde aquí podrás acceder a las funciones gerenciales, monitorear ventas y administrar productos.</p>
+          <div>
+            <span class="eyebrow">Registro de pedidos</span>
+            <h1>Bienvenido a HUEREQUEQUE</h1>
+          </div>
           <button id="logoutButton" class="btn-primary btn-logout" type="button">Cerrar sesión</button>
         </div>
+
+        <div class="order-panel">
+          <div class="order-intro">
+            <p>Registra un pedido de cliente en mesa o para llevar con rapidez y sin errores. Completa los datos de servicio, selecciona los platos y confirma el total.</p>
+          </div>
+
+          <form id="orderForm" class="order-form">
+            <div class="form-grid">
+              <div class="form-group">
+                <label for="clienteNombre">Nombre del cliente</label>
+                <input id="clienteNombre" name="clienteNombre" type="text" placeholder="Ej. Juan Pérez" />
+              </div>
+              <div class="form-group">
+                <label for="tipoServicio">Tipo de servicio</label>
+                <select id="tipoServicio" name="tipoServicio" required>
+                  <option value="Mesa">Mesa</option>
+                  <option value="Para llevar">Para llevar</option>
+                  <option value="WhatsApp">WhatsApp</option>
+                  <option value="Delivery">Delivery</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-grid">
+              <div class="form-group" id="tableNumberRow">
+                <label for="tableNumber">Mesa</label>
+                <input id="tableNumber" name="tableNumber" type="text" placeholder="12" />
+              </div>
+              <div class="form-group">
+                <label for="estado">Estado del pedido</label>
+                <select id="estado" name="estado" required>
+                  <option value="Entregado">Entregado</option>
+                  <option value="En preparación">En preparación</option>
+                  <option value="Cancelado">Cancelado</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="order-add">
+              <div class="field-group">
+                <label for="dishSelect">Plato / bebida</label>
+                <select id="dishSelect" name="dishSelect" required></select>
+              </div>
+              <div class="field-group small">
+                <label for="quantity">Cantidad</label>
+                <input id="quantity" name="quantity" type="number" min="1" value="1" required />
+              </div>
+              <button id="addDish" class="btn-secondary" type="button">Agregar</button>
+            </div>
+
+            <div class="cart-card">
+              <div class="cart-header">
+                <h2>Resumen del pedido</h2>
+                <p id="cartStatus">Añade platos para calcular el total.</p>
+              </div>
+              <div class="table-wrapper">
+                <table class="cart-table" aria-label="Detalle del pedido">
+                  <thead>
+                    <tr>
+                      <th>Plato</th>
+                      <th>Cant.</th>
+                      <th>Precio</th>
+                      <th>Total</th>
+                      <th></th>
+                    </tr>
+                  </thead>
+                  <tbody id="cartBody">
+                    <tr><td colspan="5" class="empty-row">No hay platos agregados.</td></tr>
+                  </tbody>
+                </table>
+              </div>
+              <div class="cart-footer">
+                <span>Total:</span>
+                <strong id="cartTotal">S/ 0.00</strong>
+              </div>
+            </div>
+
+            <div class="form-actions">
+              <button type="submit" class="btn-primary">Registrar pedido</button>
+              <span id="orderNotice" class="notice"></span>
+            </div>
+          </form>
+        </div>
+
+        <section class="history-card">
+          <div class="history-header">
+            <div>
+              <span class="eyebrow">Historial</span>
+              <h2>Pedidos recientes</h2>
+            </div>
+            <p>Últimos pedidos registrados desde el sistema.</p>
+          </div>
+          <div class="table-wrapper">
+            <table class="history-table" aria-label="Historial de pedidos">
+              <thead>
+                <tr>
+                  <th>ID</th>
+                  <th>Fecha</th>
+                  <th>Servicio</th>
+                  <th>Estado</th>
+                  <th>Total</th>
+                </tr>
+              </thead>
+              <tbody id="historyBody"></tbody>
+            </table>
+          </div>
+        </section>
       </section>
     </main>
   </body>
